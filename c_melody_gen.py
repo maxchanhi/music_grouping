@@ -146,6 +146,3 @@ def main_generation(rhythm_list, uppertime,lowertime ):
   while len(melody_rest) < melody_len or len(melody_rest)>melody_len*2:
     return main_generation(rhythm_list, uppertime,lowertime)
   return note_with_fraction(melody_rest), luppertime, llowertime,compound
-
-melody = ['d4', 'd2', '3(d8 e4)', 'd4']
-print(get_nplet_duration('3(d4 r4 e4)'))
