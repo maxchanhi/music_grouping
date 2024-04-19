@@ -37,18 +37,15 @@ def change_note(note_to_change, new_duration):
 
   return [pitch + rhythm_value, new_duration]
 
+
 def beat_cutter(melody, check, compound):
     value = beat_p = 0
-    if compound : #isinstance(check, int) and
-      max_check = Fraction(1, check)  
-    else:
-      max_check = Fraction(1, check)* 2 # Fraction(3, 2)
     for note in melody:
         value += note[1]
         pop = None
         if value % Fraction(1, check)==0:
             value = 0
-        elif value > Fraction(1, check) and note[1] <= max_check:
+        elif value > Fraction(1, check) and note[1] <=Fraction(1, check):
             ex_beat = abs(value - Fraction(1, check))
             in_beat = abs(melody[beat_p][1] - ex_beat)
             print(check, melody[beat_p],beat_p,in_beat,ex_beat) 
@@ -62,8 +59,6 @@ def beat_cutter(melody, check, compound):
                 melody[beat_p:beat_p + 1] = [change_note(melody[beat_p],in_beat),change_note(melody[beat_p],pop),change_note(melody[beat_p],ex_beat)]
               else:
                 melody[beat_p:beat_p + 1] = [change_note(melody[beat_p],in_beat),change_note(melody[beat_p],ex_beat)]
-                #print("cut rest")
-              
               if "r" in melody[beat_p][0]:
                 pass
               elif melody[beat_p][0][-1] == "~":
@@ -116,6 +111,4 @@ def separate_note(note_to_change, st_new_note, nd_note):
 
   return st_combine, [pitch + nd_new_rhythm, nd_note]
 
-"""melody =[['b4',Fraction(1,4)],['d1',Fraction(1,1)],['r8',Fraction(1,8)],['e8',Fraction(1,8)]]
-print(main_grouping(melody,uppertime=3,lowertime=2))"""
 
