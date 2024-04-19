@@ -31,6 +31,3 @@ def get_nplet(melody=["d3","3(d8 d4)"]):
         if "3(" and ")" in note:
             print("triplet found")
 
-get_nplet()
-#print(dashed_bar(melody=[['d2', Fraction(1, 2)],['d4', Fraction(1, 4)], ['d2', Fraction(1, 4)]],lowertime=4))
-
