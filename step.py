@@ -21,8 +21,9 @@ with col1:
 with col2:
     random_example = st.button("Generate a random example")
 melody_input = st.text_input("Or Enter a melody. Eg: d4= d crotchet, r2 = minim rest, c8. = dotted note")
-#melody_input.lower()
+
 if melody_input:
+    melody_input.lower()
     melody = note_with_fraction(convert_to_list(melody_input))
     uppertime,lowertime,compound= check_compound_time(main_uppertime,main_lowertime)
     if bar_sum(melody, uppertime, lowertime):
